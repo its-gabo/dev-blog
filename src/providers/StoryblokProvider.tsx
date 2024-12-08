@@ -1,7 +1,8 @@
 "use client";
 
-import { apiPlugin, storyblokInit } from "@storyblok/react";
 import React from "react";
+
+import { getStoryblokApi } from "@/lib/Storyblok";
 
 interface IStoryblokProviderProps {
   children: React.ReactNode;
@@ -10,14 +11,7 @@ interface IStoryblokProviderProps {
 export const StoryblokProvider: React.FC<IStoryblokProviderProps> = ({
   children,
 }) => {
-  storyblokInit({
-    accessToken: process.env.NEXT_PUBLIC_STORYBLOK_TOKEN,
-    use: [apiPlugin],
-    apiOptions: { https: true },
-    components: {},
-
-    enableFallbackComponent: true,
-  });
+  getStoryblokApi();
 
   return children;
 };
