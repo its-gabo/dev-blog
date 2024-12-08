@@ -5,7 +5,7 @@ import { StoryblokProvider } from "@/providers";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Dev Blog Starter",
+  title: "DevBlog Starter",
   description: "A starter for a developer blog using Next.js and Storyblok.",
 };
 

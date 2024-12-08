@@ -21,7 +21,7 @@ export default function Header({ blok }: IHeaderProps) {
       />
       <div>
         <h1 className="text-2xl font-montserrat">{blok.title}</h1>
-        <p className="text-lg font-lora">{blok.subtitle}</p>
+        <p className="text-lg font-lora italic">{blok.subtitle}</p>
       </div>
     </header>
   );
