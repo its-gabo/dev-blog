@@ -13,6 +13,11 @@ export default {
         foreground: "var(--foreground)",
       },
     },
+    fontFamily: {
+      montserrat: ["Montserrat", "sans-serif"],
+      lora: ["Lora", "serif"],
+      "hind-madurai": ["Hind Madurai", "sans-serif"],
+    },
   },
   plugins: [],
 } satisfies Config;
