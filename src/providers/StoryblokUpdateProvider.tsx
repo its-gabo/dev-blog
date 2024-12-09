@@ -18,7 +18,7 @@ export const StoryblokUpdateProvider = ({
 
   return (
     <>
-      {story?.content.body.map((block: SbBlokData) => (
+      {story?.content.body?.map((block: SbBlokData) => (
         <StoryblokServerComponent key={block._uid} blok={block} />
       ))}
     </>

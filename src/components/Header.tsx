@@ -13,12 +13,7 @@ interface IHeaderProps {
 export default function Header({ blok }: IHeaderProps) {
   return (
     <header className="flex gap-4 items-center" {...storyblokEditable(blok)}>
-      <Image
-        width={60}
-        height={60}
-        src={`https:${blok.logo}`}
-        alt="header image"
-      />
+      <Image width={60} height={60} src={`${blok.logo}`} alt="header image" />
       <div>
         <h1 className="text-2xl font-montserrat">{blok.title}</h1>
         <p className="text-lg font-lora italic">{blok.subtitle}</p>

@@ -11,7 +11,7 @@ export default async function Page({ slug }: IPageProps) {
   const story = await getPageContent(slug);
 
   return (
-    <main className="max-w-screen-lg w-4/5 m-auto mt-12">
+    <main className="max-w-screen-lg w-4/5 m-auto my-12 flex flex-col gap-12">
       <StoryblokUpdateProvider initialStory={story} />
     </main>
   );
@@ -19,6 +19,9 @@ export default async function Page({ slug }: IPageProps) {
 
 const getPageContent = async (slug: string) => {
   return (
-    await getStoryblokApi().get(`cdn/stories/${slug}`, { version: "draft" })
+    await getStoryblokApi().get(`cdn/stories/${slug}`, {
+      version: "draft",
+      resolve_relations: "featuredPosts.posts",
+    })
   ).data.story as ISbStoryData;
 };
