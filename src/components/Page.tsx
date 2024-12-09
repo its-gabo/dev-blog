@@ -1,19 +1,18 @@
 import { getStoryblokApi } from "@/lib/Storyblok";
+import { StoryblokUpdateProvider } from "@/providers/StoryblokUpdateProvider";
 
-import { SbBlokData, StoryblokServerComponent } from "@storyblok/react/rsc";
+import { ISbStoryData } from "@storyblok/react/rsc";
 
 interface IPageProps {
   slug: string;
 }
 
 export default async function Page({ slug }: IPageProps) {
-  const blocks = await getPageContent(slug);
+  const story = await getPageContent(slug);
 
   return (
     <main className="max-w-screen-lg w-4/5 m-auto mt-12">
-      {blocks.map((block) => (
-        <StoryblokServerComponent key={block._uid} blok={block} />
-      ))}
+      <StoryblokUpdateProvider initialStory={story} />
     </main>
   );
 }
@@ -21,5 +20,5 @@ export default async function Page({ slug }: IPageProps) {
 const getPageContent = async (slug: string) => {
   return (
     await getStoryblokApi().get(`cdn/stories/${slug}`, { version: "draft" })
-  ).data.story.content.body as SbBlokData[];
+  ).data.story as ISbStoryData;
 };

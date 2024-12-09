@@ -7,6 +7,7 @@ export const getStoryblokApi = storyblokInit({
   use: [apiPlugin],
   apiOptions: { https: true },
   components,
+  bridge: true,
 
   enableFallbackComponent: true,
 });
